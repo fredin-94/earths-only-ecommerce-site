@@ -47,7 +47,7 @@ namespace earths_only_ecommerce_site_core
             });
 
             services.AddSession();
-            services.AddTransient<IErrandRepository, EFErrandRepository>(); //set up our model to the interface
+            services.AddTransient<ICommerceRepo, EFCommerceRepo>(); //set up our model to the interface
             /////
 
 

@@ -14,6 +14,7 @@ namespace earths_only_ecommerce_site_core.Models
         IQueryable<Order> Orders { get; }
         IQueryable<Seller> Sellers { get; }
         IQueryable<User> Users { get; }
+        IQueryable<Picture> Pictures { get; }
 
         //
         ItemForSale GetOneItem(string id);

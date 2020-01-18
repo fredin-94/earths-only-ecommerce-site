@@ -14,9 +14,9 @@
 
 
   <ItemGroup>
-    <Folder Include="Components\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Seller\" />
+    <Folder Include="wwwroot\images\itemImages\" />
   </ItemGroup>
 
 </Project>

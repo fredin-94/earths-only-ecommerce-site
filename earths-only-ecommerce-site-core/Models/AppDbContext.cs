@@ -21,6 +21,7 @@ namespace earths_only_ecommerce_site_core.Models
         public DbSet<Seller> Sellers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Picture> Pictures { get; set; }
 
 
     }

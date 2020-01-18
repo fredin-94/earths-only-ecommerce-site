@@ -8,6 +8,7 @@ namespace earths_only_ecommerce_site_core.Models
 {
     public class ItemForSale
     {
+        [Key]
         public int ItemId { get; set; }  //primary key
 
         [Display(Name = "Name of product: ")]
@@ -30,7 +31,7 @@ namespace earths_only_ecommerce_site_core.Models
         [Display(Name = "Product rating: ")]
         public int Rating { get; set; }
 
-        public ICollection<string> ItemImagePaths { get; set; }
+        public ICollection<Picture> ItemPictures { get; set; }
 
         //foreign key
         public int SellerId { get; set; }
