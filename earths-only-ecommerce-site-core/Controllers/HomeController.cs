@@ -55,15 +55,15 @@ namespace earths_only_ecommerce_site_core.Controllers
 
                         if (await userManager.IsInRoleAsync(user, "User"))
                         {
-                            return Redirect(loginModel?.ReturnUrl ?? "/User/IndexUser/");
+                            return Redirect(loginModel?.ReturnUrl ?? "/User/Index");
                         }
                         else if (await userManager.IsInRoleAsync(user, "Admin"))
                         {
-                            return Redirect(loginModel?.ReturnUrl ?? "/Admin/IndexAdmin");
+                            return Redirect(loginModel?.ReturnUrl ?? "/Admin/Index");
                         }
                         else if (await userManager.IsInRoleAsync(user, "Seller"))
                         {
-                            return Redirect(loginModel?.ReturnUrl ?? "/Seller/IndexSeller");
+                            return Redirect(loginModel?.ReturnUrl ?? "/Seller/Index");
                         }
                     }
                 }

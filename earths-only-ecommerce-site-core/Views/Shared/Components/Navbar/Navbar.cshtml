@@ -1,2 +1,41 @@
 ﻿@{
+
+}
+@{
+    if (ViewBag.UserIsSignedIn)
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout">Sign out</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Sign in</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Signup">Sign up</a>
+        </li>
+    }
+    if (ViewBag.UserIsSignedIn && ViewBag.UserRole == "User")
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">My Page</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Cart">My Cart</a>
+        </li>
+    }
+    else if (ViewBag.UserIsSignedIn && ViewBag.UserRole == "Seller")
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Seller" asp-action="Store">My Store</a>
+        </li>
+    }
+    else if (ViewBag.UserIsSignedIn && ViewBag.UserRole == "Admin")
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="HandleAccounts">Handle Accounts</a>
+        </li>
+    }
 }

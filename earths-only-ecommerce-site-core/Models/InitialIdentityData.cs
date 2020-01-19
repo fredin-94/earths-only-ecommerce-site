@@ -36,8 +36,6 @@ namespace earths_only_ecommerce_site_core.Models
             {
                 await rManager.CreateAsync(new IdentityRole("Seller"));
             }
-
-
         }
 
         private static async Task CreateUsers(UserManager<IdentityUser> uManager)
