@@ -1,2 +1,12 @@
 ﻿@{
+    ItemForSale item = ViewBag.SelectedItem;
 }
+
+<div>
+    <img alt="@item.ItemName" src="https://screenshotlayer.com/images/assets/placeholder.png"/> 
+    <h2>@item.ItemName</h2>
+    <p>About: @item.ItemDescription</p>
+    <p>Price: @item.ItemPrice SEK</p>
+    <p>In stock: @item.InStock</p>
+    <button class="btn btn-dark">Add to cart</button>
+</div>

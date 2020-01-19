@@ -17,13 +17,13 @@ namespace earths_only_ecommerce_site_core.Models
         IQueryable<Picture> Pictures { get; }
 
         //
-        ItemForSale GetOneItem(string id);
+        ItemForSale GetOneItem(int id);
 
         //
         string CreateItemForSale(ItemForSale item);
 
         //
-        ItemForSale DeleteItemForSale(string id);
+        ItemForSale DeleteItemForSale(int id);
 
     }
 }

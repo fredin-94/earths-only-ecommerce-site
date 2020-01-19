@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using earths_only_ecommerce_site_core.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,21 @@ namespace earths_only_ecommerce_site_core.Components
     {
 
         private IHttpContextAccessor contextAccessor;
+        private ICommerceRepo repo; //get access to DB so we can display items for sale
 
-        public GridItemsViewComponent(IHttpContextAccessor contextAccessor)
+        public GridItemsViewComponent(IHttpContextAccessor contextAccessor, ICommerceRepo repo)
         {
             this.contextAccessor = contextAccessor;
+            this.repo = repo;
         }
 
         public IViewComponentResult Invoke()
         {
-            return View();
+            ViewBag.ItemsForSale = repo.Items.ToArray();
+
+            ItemForSale[] items = repo.Items.ToArray();
+
+            return View("GridItems", items);
         }
 
 

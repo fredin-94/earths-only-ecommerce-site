@@ -1,2 +1,54 @@
 ﻿@{
+// @model ICommerceRepo
 }
+
+<div>
+
+    @{
+        string defaultImg = "https://screenshotlayer.com/images/assets/placeholder.png";
+
+        int totalItems = 0;
+
+        foreach (ItemForSale item in ViewBag.ItemsForSale)
+        {
+            totalItems++;
+        }
+
+        int itemsPerRow = 4;
+        //int itemsTotal = ViewBag.ItemsForSale.Length;
+        int rowsTotal = (int)Math.Ceiling((double)(totalItems) / itemsPerRow);
+        ItemForSale[] itemsForSale = ViewBag.ItemsForSale;
+
+    }
+
+    @for (int i = 0, itemNum = 0; i < rowsTotal; i++)
+    {
+        <div class="row">
+            @for (int j = 0; j < itemsPerRow && itemNum < totalItems; j++, itemNum++)
+            {
+
+                
+
+            <div class="col-md-3">
+
+                @if (@itemsForSale[itemNum].ItemPictures == null)
+                {
+                    <div>
+                        <img src="@defaultImg" alt="@itemsForSale[itemNum].ItemName" />
+                    </div>
+                }else{
+                    <div>
+                        <img src="@defaultImg" alt="@itemsForSale[itemNum].ItemName" />
+                    </div>
+                }
+
+                <h4> <a asp-controller="Home" asp-action="SingleItem" asp-route-id="@itemsForSale[itemNum].ItemId"> @itemsForSale[itemNum].ItemName </a></h4>
+                <p>About: @itemsForSale[itemNum].ItemDescription</p>
+                <p>Price: @itemsForSale[itemNum].ItemPrice SEK</p>
+                <p>In stock: @itemsForSale[itemNum].InStock </p>
+            </div>
+            }
+        </div>
+    }
+
+</div>

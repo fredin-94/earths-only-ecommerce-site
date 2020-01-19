@@ -31,7 +31,7 @@ namespace earths_only_ecommerce_site_core.Models
         [Display(Name = "Product rating: ")]
         public int Rating { get; set; }
 
-        public ICollection<Picture> ItemPictures { get; set; }
+        public ICollection<Picture> ItemPictures { get; set; } //maybe better to only have 1 img per prduct
 
         //foreign key
         public int SellerId { get; set; }

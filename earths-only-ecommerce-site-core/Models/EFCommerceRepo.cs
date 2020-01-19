@@ -33,18 +33,34 @@ namespace earths_only_ecommerce_site_core.Models
         //Post
         public string CreateItemForSale(ItemForSale item)
         {
-            throw new NotImplementedException();
+            context.Items.Add(item);
+            context.SaveChanges();
+
+            return "Item Saved"; //change later
         }
 
-        public ItemForSale DeleteItemForSale(string id)
+        public ItemForSale DeleteItemForSale(int id)
         {
-            throw new NotImplementedException();
+
+            ItemForSale item = context.Items.Where(itemToFind => itemToFind.ItemId == id).FirstOrDefault();
+
+            if (item != null) {
+                context.Items.Remove(item);
+            }
+            context.SaveChanges();
+
+            return item;
+
         }
 
         //GET 1 item
-        public ItemForSale GetOneItem(string id)
+        public ItemForSale GetOneItem(int id)
         {
-            throw new NotImplementedException();
+
+            var item = context.Items.Where(itemToFind => itemToFind.ItemId == id).FirstOrDefault();
+
+            return item;
+
         }
     }
 }

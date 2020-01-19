@@ -17,11 +17,15 @@ namespace earths_only_ecommerce_site_core.Controllers
         private UserManager<IdentityUser> userManager;
         private SignInManager<IdentityUser> signInManager;
 
+        private ICommerceRepo repo;
+
         //Constructor
-        public HomeController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public HomeController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ICommerceRepo repo)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+
+            this.repo = repo;
         }
 
         public IActionResult Index()
@@ -87,7 +91,33 @@ namespace earths_only_ecommerce_site_core.Controllers
             return View();
         }
 
+        ///////////////VIEWS////////////////
+        //shopping
+        public IActionResult Shopping()
+        {
+            return View();
+        }
 
+        public IActionResult SingleItem(int id)
+        {
+            //find single item in db, send to view, display it
+
+            ViewBag.SelectedItem = repo.GetOneItem(id);
+
+            return View();
+        }
+
+        //about
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        //privacy
+        public IActionResult Privacy()
+        {
+            return View();
+        }
 
         //made by the system:
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
