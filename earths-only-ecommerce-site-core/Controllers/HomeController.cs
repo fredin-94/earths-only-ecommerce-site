@@ -8,6 +8,7 @@ using earths_only_ecommerce_site_core.Models;
 using earths_only_ecommerce_site_core.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace earths_only_ecommerce_site_core.Controllers
 {
@@ -16,14 +17,18 @@ namespace earths_only_ecommerce_site_core.Controllers
 
         private UserManager<IdentityUser> userManager;
         private SignInManager<IdentityUser> signInManager;
+        private IHttpContextAccessor contextAccessor;
+
 
         private ICommerceRepo repo;
 
         //Constructor
-        public HomeController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ICommerceRepo repo)
+        public HomeController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ICommerceRepo repo, IHttpContextAccessor contextAccessor)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.contextAccessor = contextAccessor;
+
 
             this.repo = repo;
         }
@@ -103,6 +108,15 @@ namespace earths_only_ecommerce_site_core.Controllers
             //find single item in db, send to view, display it
 
             ViewBag.SelectedItem = repo.GetOneItem(id);
+
+            bool loggedIn = false;
+
+            if (contextAccessor.HttpContext.User.IsInRole("User"))
+            {
+                loggedIn = true;
+            }
+
+            ViewBag.LoggedIn = loggedIn;
 
             return View();
         }

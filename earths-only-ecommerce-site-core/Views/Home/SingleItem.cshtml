@@ -3,10 +3,13 @@
 }
 
 <div>
-    <img alt="@item.ItemName" src="https://screenshotlayer.com/images/assets/placeholder.png"/> 
+    <img alt="@item.ItemName" src="@item.Picture" style="max-height:250px" />
     <h2>@item.ItemName</h2>
     <p>About: @item.ItemDescription</p>
     <p>Price: @item.ItemPrice SEK</p>
     <p>In stock: @item.InStock</p>
-    <button class="btn btn-dark">Add to cart</button>
+    
+    @if(ViewBag.LoggedIn == true){
+        <button class="btn btn-dark" asp-controller="User" asp-action="UserCart" asp-route-item="@item.ItemId">Add to cart</button>
+    }
 </div>

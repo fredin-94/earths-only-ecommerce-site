@@ -31,14 +31,14 @@
 
             <div class="col-md-3">
 
-                @if (@itemsForSale[itemNum].ItemPictures == null)
+                @if (@itemsForSale[itemNum].Picture == null)
                 {
                     <div>
-                        <img src="@defaultImg" alt="@itemsForSale[itemNum].ItemName" />
+                        <img style="max-height:200px" src="@defaultImg" alt="@itemsForSale[itemNum].ItemName" />
                     </div>
                 }else{
                     <div>
-                        <img src="@defaultImg" alt="@itemsForSale[itemNum].ItemName" />
+                        <img style="max-height:200px" src="@itemsForSale[itemNum].Picture" alt="@itemsForSale[itemNum].ItemName" />
                     </div>
                 }
 

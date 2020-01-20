@@ -17,10 +17,10 @@ namespace earths_only_ecommerce_site_core.Models
             if (!context.Items.Any())
             {
                 context.Items.AddRange(
-                    new ItemForSale { ItemDescription = "Notebook, plain", ItemName = "Notebook black", InStock=10, ItemPrice=10 },
-                    new ItemForSale { ItemDescription = "A durable pen", ItemName = "Ink pen", InStock = 100, ItemPrice = 25 },
-                    new ItemForSale { ItemDescription = "Folders of different colors", ItemName = "Folder", InStock = 52, ItemPrice = 40 },
-                    new ItemForSale { ItemDescription = "Paper weight, different colors available", ItemName = "Paper weight", InStock = 0, ItemPrice = 150 }
+                    new ItemForSale { ItemDescription = "Notebook, plain", ItemName = "Notebook black", InStock=10, ItemPrice=10, Picture= "https://5.imimg.com/data5/WQ/LE/MY-35609268/stationery-notebook-500x500.jpg" },
+                    new ItemForSale { ItemDescription = "A durable pen", ItemName = "Ink pen", InStock = 100, ItemPrice = 25, Picture= "https://5.imimg.com/data5/AU/YL/MY-33953112/fountain-ink-pen-500x500.png" },
+                    new ItemForSale { ItemDescription = "Folders of different colors", ItemName = "Folder", InStock = 52, ItemPrice = 40, Picture= "http://www.tarifold.com/wp-content/uploads/2019/06/L-Folders-Color-collection-Tarifold.jpg" },
+                    new ItemForSale { ItemDescription = "Paper weight, different colors available", ItemName = "Paper weight", InStock = 0, ItemPrice = 150, Picture= "https://www.janeausten.co.uk/wp-content/uploads/2016/10/paper-weight-jane-austen-4.jpg" }
                 );
                 context.SaveChanges();
             }

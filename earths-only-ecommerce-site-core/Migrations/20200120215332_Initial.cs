@@ -47,6 +47,7 @@ namespace earths_only_ecommerce_site_core.Migrations
                     ItemPrice = table.Column<int>(nullable: false),
                     InStock = table.Column<int>(nullable: false),
                     Rating = table.Column<int>(nullable: false),
+                    Picture = table.Column<string>(nullable: true),
                     SellerId = table.Column<int>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false)
                 },
@@ -119,31 +120,6 @@ namespace earths_only_ecommerce_site_core.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.UserId);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "Pictures",
-                columns: table => new
-                {
-                    PictureId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PicturePath = table.Column<int>(nullable: false),
-                    ItemForSaleItemId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Pictures", x => x.PictureId);
-                    table.ForeignKey(
-                        name: "FK_Pictures_Items_ItemForSaleItemId",
-                        column: x => x.ItemForSaleItemId,
-                        principalTable: "Items",
-                        principalColumn: "ItemId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Pictures_ItemForSaleItemId",
-                table: "Pictures",
-                column: "ItemForSaleItemId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -155,19 +131,16 @@ namespace earths_only_ecommerce_site_core.Migrations
                 name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Items");
 
             migrationBuilder.DropTable(
-                name: "Pictures");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Sellers");
 
             migrationBuilder.DropTable(
                 name: "Users");
-
-            migrationBuilder.DropTable(
-                name: "Items");
         }
     }
 }

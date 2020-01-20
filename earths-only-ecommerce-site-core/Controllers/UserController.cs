@@ -15,5 +15,13 @@ namespace earths_only_ecommerce_site_core.Controllers
         {
             return View();
         }
+
+        public IActionResult Cart(string item)
+        {
+
+            return View();
+        }
+
+
     }
 }

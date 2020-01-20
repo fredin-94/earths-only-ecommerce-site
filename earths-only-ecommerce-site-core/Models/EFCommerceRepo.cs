@@ -28,8 +28,6 @@ namespace earths_only_ecommerce_site_core.Models
 
         public IQueryable<User> Users => context.Users;
 
-        public IQueryable<Picture> Pictures => context.Pictures;
-
         //Post
         public string CreateItemForSale(ItemForSale item)
         {

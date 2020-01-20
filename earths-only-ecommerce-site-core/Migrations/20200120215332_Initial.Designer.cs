@@ -10,7 +10,7 @@ using earths_only_ecommerce_site_core.Models;
 namespace earths_only_ecommerce_site_core.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200118144040_Initial")]
+    [Migration("20200120215332_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,6 +69,8 @@ namespace earths_only_ecommerce_site_core.Migrations
 
                     b.Property<int>("ItemPrice");
 
+                    b.Property<string>("Picture");
+
                     b.Property<int>("Rating");
 
                     b.Property<int>("SellerId");
@@ -99,23 +101,6 @@ namespace earths_only_ecommerce_site_core.Migrations
                     b.HasKey("OrderId");
 
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("earths_only_ecommerce_site_core.Models.Picture", b =>
-                {
-                    b.Property<int>("PictureId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ItemForSaleItemId");
-
-                    b.Property<int>("PicturePath");
-
-                    b.HasKey("PictureId");
-
-                    b.HasIndex("ItemForSaleItemId");
-
-                    b.ToTable("Pictures");
                 });
 
             modelBuilder.Entity("earths_only_ecommerce_site_core.Models.Seller", b =>
@@ -184,13 +169,6 @@ namespace earths_only_ecommerce_site_core.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("earths_only_ecommerce_site_core.Models.Picture", b =>
-                {
-                    b.HasOne("earths_only_ecommerce_site_core.Models.ItemForSale")
-                        .WithMany("ItemPictures")
-                        .HasForeignKey("ItemForSaleItemId");
                 });
 #pragma warning restore 612, 618
         }
