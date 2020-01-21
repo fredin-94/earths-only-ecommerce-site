@@ -14,6 +14,8 @@
 
 
   <ItemGroup>
+    <Folder Include="Views\NewFolder1\" />
+    <Folder Include="Views\NewFolder\" />
     <Folder Include="wwwroot\images\itemImages\" />
   </ItemGroup>
 

@@ -1,0 +1,27 @@
+﻿@{
+
+}
+
+<div>
+    <h4>In Cart: </h4>
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        @foreach (var item in ViewBag.Cart)
+        {
+        <tr>
+            <td>@item.ItemForSale.Picture</td>
+            <td>@item.ItemForSale.Name</td>
+            <td>@item.ItemForSale.Price</td>
+            <td>insert quantity here</td>
+        </tr>
+        }
+    </table>
+
+    <a asp-controller="Home" asp-action="Shopping">Continue shopping</a>
+
+</div>

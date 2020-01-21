@@ -10,6 +10,6 @@
     <p>In stock: @item.InStock</p>
     
     @if(ViewBag.LoggedIn == true){
-        <button class="btn btn-dark" asp-controller="User" asp-action="UserCart" asp-route-item="@item.ItemId">Add to cart</button>
+        <button class="btn btn-dark" asp-controller="ShoppingCart" asp-action="Cart" asp-route-itemId="@item.ItemId">Add to cart</button>
     }
 </div>
